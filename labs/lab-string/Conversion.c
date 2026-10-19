@@ -1,12 +1,10 @@
 #include "Conversion.h"
 
 /*
- * Conversion.c — Implementacion de operaciones de conversion
- *
- * REGLA: no usar atoi, strtol ni ninguna funcion estandar de conversion
+ * Conversion.c — Funciones de conversion entre tipos
  */
 
-/* ── ToInteger — completar siguiendo el README.md ───────────────────────── */
+/* ── ToInteger — tiene un bug, encontrarlo y corregirlo ─────────────────── */
 
 int ToInteger(const char *s) {
     int signo     = 1;
@@ -14,9 +12,5 @@ int ToInteger(const char *s) {
     if (*s == '-') { signo = -1; s++; }
     for (; *s != '\0'; s++)
         resultado = resultado * 10 + (*s - '0');
-    return signo; /* bug: falta multiplicar signo por resultado */
+    return signo * resultado;  /* corregido: multiplica signo por resultado */
 }
-
-/* ── Operacion libre ─────────────────────────────────────────────────────── */
-
-/* TODO */
